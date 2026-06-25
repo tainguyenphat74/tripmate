@@ -1,4 +1,4 @@
-import { mockTrip } from "./mock";
+import { mockTrip, mockTrips } from "./mock";
 import { getSupabase, hasSupabase } from "./supabase";
 import type { Trip } from "./types";
 
@@ -9,8 +9,8 @@ import type { Trip } from "./types";
  */
 export async function getTrip(code: string): Promise<Trip | null> {
   if (!hasSupabase) {
-    // Demo mode: always show the sample trip.
-    return mockTrip;
+    // Demo mode: show the matching sample trip (Đà Lạt or Vũng Tàu).
+    return mockTrips[code] ?? mockTrip;
   }
 
   const sb = getSupabase()!;

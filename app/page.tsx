@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PlaneIcon, ArrowRightIcon } from "@/components/icons";
-import { mockTrip } from "@/lib/mock";
+import { mockTrip, mockTrips } from "@/lib/mock";
 
 export default function HomePage() {
   return (
@@ -47,9 +47,14 @@ export default function HomePage() {
 
       <div className="mt-auto pt-10 text-center text-[12px] text-muted">
         Ví dụ:{" "}
-        <Link href={`/t/${mockTrip.code}`} className="font-semibold text-terra">
-          {mockTrip.name}
-        </Link>
+        {Object.values(mockTrips).map((t, i) => (
+          <span key={t.code}>
+            {i > 0 && " · "}
+            <Link href={`/t/${t.code}`} className="font-semibold text-terra">
+              {t.name}
+            </Link>
+          </span>
+        ))}
       </div>
     </main>
   );
