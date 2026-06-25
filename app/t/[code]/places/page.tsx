@@ -2,7 +2,15 @@ import { notFound } from "next/navigation";
 import { TripHeader } from "@/components/TripHeader";
 import { AddPlaceSheet } from "@/components/AddPlaceSheet";
 import { PlaceToggle } from "@/components/PlaceToggle";
+import { MapPinIcon } from "@/components/icons";
 import { getTrip } from "@/lib/data";
+
+function mapsHref(name: string, url?: string): string {
+  return (
+    url ||
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name)}`
+  );
+}
 
 export default async function PlacesPage({
   params,
@@ -50,6 +58,15 @@ export default async function PlacesPage({
                   <div className="mt-0.5 text-[12.5px] text-muted">{p.note}</div>
                 )}
               </div>
+              <a
+                href={mapsHref(p.name, p.url)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Mở "${p.name}" trong Google Maps`}
+                className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-line text-terra transition-colors hover:bg-terra hover:text-white"
+              >
+                <MapPinIcon size={17} />
+              </a>
             </li>
           ))}
         </ul>
