@@ -1,10 +1,17 @@
+import { notFound } from "next/navigation";
 import { TripHeader } from "@/components/TripHeader";
 import { Fab } from "@/components/Fab";
 import { CheckIcon } from "@/components/icons";
-import { mockTrip } from "@/lib/mock";
+import { getTrip } from "@/lib/data";
 
-export default function PlacesPage() {
-  const trip = mockTrip;
+export default async function PlacesPage({
+  params,
+}: {
+  params: Promise<{ code: string }>;
+}) {
+  const { code } = await params;
+  const trip = await getTrip(code);
+  if (!trip) notFound();
   const visitedCount = trip.places.filter((p) => p.visited).length;
 
   return (

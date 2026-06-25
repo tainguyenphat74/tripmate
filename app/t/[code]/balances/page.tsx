@@ -1,12 +1,19 @@
+import { notFound } from "next/navigation";
 import { TripHeader } from "@/components/TripHeader";
 import { Avatar } from "@/components/Avatar";
 import { ArrowRightIcon, CheckIcon } from "@/components/icons";
-import { mockTrip } from "@/lib/mock";
+import { getTrip } from "@/lib/data";
 import { computeBalances, settleUp } from "@/lib/settle";
 import { formatVND, formatSignedVND } from "@/lib/format";
 
-export default function BalancesPage() {
-  const trip = mockTrip;
+export default async function BalancesPage({
+  params,
+}: {
+  params: Promise<{ code: string }>;
+}) {
+  const { code } = await params;
+  const trip = await getTrip(code);
+  if (!trip) notFound();
   const name = (id: string) =>
     trip.members.find((m) => m.id === id)?.name ?? "?";
 

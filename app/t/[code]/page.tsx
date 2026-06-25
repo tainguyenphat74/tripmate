@@ -1,11 +1,19 @@
+import { notFound } from "next/navigation";
 import { TripHeader } from "@/components/TripHeader";
 import { Fab } from "@/components/Fab";
-import { mockTrip, CURRENT_MEMBER_ID } from "@/lib/mock";
+import { getTrip } from "@/lib/data";
+import { CURRENT_MEMBER_ID } from "@/lib/mock";
 import { computeBalances } from "@/lib/settle";
 import { formatVND, formatSignedVND } from "@/lib/format";
 
-export default function ExpensesPage() {
-  const trip = mockTrip;
+export default async function ExpensesPage({
+  params,
+}: {
+  params: Promise<{ code: string }>;
+}) {
+  const { code } = await params;
+  const trip = await getTrip(code);
+  if (!trip) notFound();
   const me = CURRENT_MEMBER_ID;
   const memberName = (id: string) =>
     trip.members.find((m) => m.id === id)?.name ?? "?";
