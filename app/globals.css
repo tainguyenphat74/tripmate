@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  /* TripMate — design "J1 Editorial Travel / Terracotta" */
+  --color-bg: #fffbeb;
+  --color-card: #ffffff;
+  --color-fg: #1c1917;
+  --color-muted: #8a7e6a;
+  --color-terra: #9a3412;
+  --color-terra-soft: #f3e3d6;
+  --color-line: #ede3cc;
+  --color-pos: #15803d;
+  --color-neg: #9a3412;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular figures for money so columns stay aligned */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
