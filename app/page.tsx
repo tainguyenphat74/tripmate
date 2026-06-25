@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PlaneIcon, ArrowRightIcon } from "@/components/icons";
+import { CreateTripDialog } from "@/components/CreateTripDialog";
 import { mockTrip, mockTrips } from "@/lib/mock";
 
 export default function HomePage() {
@@ -18,13 +19,7 @@ export default function HomePage() {
       </p>
 
       <div className="mt-9 space-y-3">
-        <Link
-          href={`/t/${mockTrip.code}`}
-          className="flex items-center justify-center gap-2 rounded-2xl bg-terra px-5 py-4 text-[15px] font-semibold text-white shadow-[0_12px_26px_rgba(154,52,18,0.3)] transition-transform active:scale-[0.98]"
-        >
-          Tạo chuyến đi mới
-          <ArrowRightIcon size={18} />
-        </Link>
+        <CreateTripDialog />
 
         <div className="rounded-2xl border border-line bg-card p-2 pl-4">
           <div className="flex items-center gap-2">

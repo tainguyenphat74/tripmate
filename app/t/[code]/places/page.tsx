@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { TripHeader } from "@/components/TripHeader";
-import { Fab } from "@/components/Fab";
-import { CheckIcon } from "@/components/icons";
+import { AddPlaceSheet } from "@/components/AddPlaceSheet";
+import { PlaceToggle } from "@/components/PlaceToggle";
 import { getTrip } from "@/lib/data";
 
 export default async function PlacesPage({
@@ -37,16 +37,7 @@ export default async function PlacesPage({
               key={p.id}
               className="flex items-center gap-3.5 border-b border-line py-[15px]"
             >
-              <span
-                className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border-2 ${
-                  p.visited
-                    ? "border-terra bg-terra text-white"
-                    : "border-line text-transparent"
-                }`}
-                aria-hidden
-              >
-                <CheckIcon size={15} />
-              </span>
+              <PlaceToggle placeId={p.id} code={trip.code} visited={p.visited} />
               <div className="min-w-0 flex-1">
                 <div
                   className={`font-serif text-[18px] font-semibold ${
@@ -64,7 +55,7 @@ export default async function PlacesPage({
         </ul>
       </section>
 
-      <Fab label="Thêm địa điểm" />
+      <AddPlaceSheet tripId={trip.id} code={trip.code} />
     </>
   );
 }

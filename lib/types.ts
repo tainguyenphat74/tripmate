@@ -22,11 +22,20 @@ export type Place = {
   visited: boolean;
 };
 
+export type Settlement = {
+  id: string;
+  fromId: string;
+  toId: string;
+  amount: number;
+};
+
 export type Trip = {
+  id: string;
   code: string;
   name: string;
   currency: string; // "VND"
   members: Member[];
   expenses: Expense[];
   places: Place[];
+  settlements: Settlement[];
 };

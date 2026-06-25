@@ -1,4 +1,4 @@
-import type { Expense, Member } from "./types";
+import type { Expense, Member, Settlement } from "./types";
 
 export type Balance = {
   memberId: string;
@@ -11,10 +11,14 @@ export type Transfer = {
   amount: number;
 };
 
-/** Net balance per member = total paid − total share owed. */
+/**
+ * Net balance per member = total paid − total share owed
+ *   − settlements paid out + settlements received.
+ */
 export function computeBalances(
   members: Member[],
   expenses: Expense[],
+  settlements: Settlement[] = [],
 ): Balance[] {
   const net = new Map<string, number>();
   for (const m of members) net.set(m.id, 0);
@@ -24,6 +28,12 @@ export function computeBalances(
     for (const s of e.shares) {
       net.set(s.memberId, (net.get(s.memberId) ?? 0) - s.amount);
     }
+  }
+
+  // A settlement (from → to) means `from` paid down their debt to `to`.
+  for (const s of settlements) {
+    net.set(s.fromId, (net.get(s.fromId) ?? 0) + s.amount);
+    net.set(s.toId, (net.get(s.toId) ?? 0) - s.amount);
   }
 
   return members.map((m) => ({ memberId: m.id, net: net.get(m.id) ?? 0 }));

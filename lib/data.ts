@@ -22,19 +22,24 @@ export async function getTrip(code: string): Promise<Trip | null> {
     .single();
   if (!trip) return null;
 
-  const [membersRes, expensesRes, placesRes] = await Promise.all([
-    sb.from("members").select("id, name").eq("trip_id", trip.id),
-    sb
-      .from("expenses")
-      .select("id, payer_id, description, amount, split_type")
-      .eq("trip_id", trip.id)
-      .order("created_at", { ascending: false }),
-    sb
-      .from("places")
-      .select("id, name, note, url, visited")
-      .eq("trip_id", trip.id)
-      .order("position", { ascending: true }),
-  ]);
+  const [membersRes, expensesRes, placesRes, settlementsRes] =
+    await Promise.all([
+      sb.from("members").select("id, name").eq("trip_id", trip.id),
+      sb
+        .from("expenses")
+        .select("id, payer_id, description, amount, split_type")
+        .eq("trip_id", trip.id)
+        .order("created_at", { ascending: false }),
+      sb
+        .from("places")
+        .select("id, name, note, url, visited")
+        .eq("trip_id", trip.id)
+        .order("position", { ascending: true }),
+      sb
+        .from("settlements")
+        .select("id, from_id, to_id, amount")
+        .eq("trip_id", trip.id),
+    ]);
 
   const expenseRows = expensesRes.data ?? [];
   const expenseIds = expenseRows.map((e) => e.id);
@@ -46,6 +51,7 @@ export async function getTrip(code: string): Promise<Trip | null> {
     : { data: [] as { expense_id: string; member_id: string; amount: number }[] };
 
   return {
+    id: trip.id,
     code: trip.join_code,
     name: trip.name,
     currency: trip.currency,
@@ -66,6 +72,12 @@ export async function getTrip(code: string): Promise<Trip | null> {
       note: p.note ?? undefined,
       url: p.url ?? undefined,
       visited: p.visited,
+    })),
+    settlements: (settlementsRes.data ?? []).map((s) => ({
+      id: s.id,
+      fromId: s.from_id,
+      toId: s.to_id,
+      amount: s.amount,
     })),
   };
 }

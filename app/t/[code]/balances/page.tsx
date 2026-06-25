@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { TripHeader } from "@/components/TripHeader";
 import { Avatar } from "@/components/Avatar";
-import { ArrowRightIcon, CheckIcon } from "@/components/icons";
+import { ArrowRightIcon } from "@/components/icons";
+import { SettleButton } from "@/components/SettleButton";
 import { getTrip } from "@/lib/data";
 import { computeBalances, settleUp } from "@/lib/settle";
 import { formatVND, formatSignedVND } from "@/lib/format";
@@ -17,7 +18,11 @@ export default async function BalancesPage({
   const name = (id: string) =>
     trip.members.find((m) => m.id === id)?.name ?? "?";
 
-  const balances = computeBalances(trip.members, trip.expenses);
+  const balances = computeBalances(
+    trip.members,
+    trip.expenses,
+    trip.settlements,
+  );
   const transfers = settleUp(balances);
   const sorted = [...balances].sort((a, b) => b.net - a.net);
 
@@ -88,13 +93,13 @@ export default async function BalancesPage({
                   {formatVND(t.amount)}
                 </div>
               </div>
-              <button
-                type="button"
-                className="flex items-center gap-1.5 rounded-full border border-terra px-3 py-1.5 text-[12px] font-semibold text-terra transition-colors hover:bg-terra hover:text-white"
-              >
-                <CheckIcon size={14} />
-                Đã trả
-              </button>
+              <SettleButton
+                tripId={trip.id}
+                code={trip.code}
+                fromId={t.fromId}
+                toId={t.toId}
+                amount={t.amount}
+              />
             </li>
           ))}
         </ul>

@@ -16,9 +16,11 @@ const members: Member[] = [
 ];
 
 const dalat: Trip = {
+  id: "11111111-1111-1111-1111-111111111111",
   code: "dalat-0626",
   name: "Đà Lạt 06/2026",
   currency: "VND",
+  settlements: [],
   members,
   expenses: [
     {
@@ -70,9 +72,11 @@ const dalat: Trip = {
 };
 
 const vungtau: Trip = {
+  id: "22222222-2222-2222-2222-222222222222",
   code: "vungtau-0726",
   name: "Vũng Tàu 07/2026",
   currency: "VND",
+  settlements: [],
   members,
   expenses: [
     {

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { TripHeader } from "@/components/TripHeader";
-import { Fab } from "@/components/Fab";
+import { AddExpenseSheet } from "@/components/AddExpenseSheet";
 import { getTrip } from "@/lib/data";
 import { CURRENT_MEMBER_ID } from "@/lib/mock";
 import { computeBalances } from "@/lib/settle";
@@ -18,7 +18,11 @@ export default async function ExpensesPage({
   const memberName = (id: string) =>
     trip.members.find((m) => m.id === id)?.name ?? "?";
 
-  const balances = computeBalances(trip.members, trip.expenses);
+  const balances = computeBalances(
+    trip.members,
+    trip.expenses,
+    trip.settlements,
+  );
   const myNet = balances.find((b) => b.memberId === me)?.net ?? 0;
 
   return (
@@ -95,7 +99,12 @@ export default async function ExpensesPage({
         </ul>
       </section>
 
-      <Fab label="Thêm khoản chi" />
+      <AddExpenseSheet
+        tripId={trip.id}
+        code={trip.code}
+        members={trip.members}
+        defaultPayerId={trip.members[0]?.id ?? ""}
+      />
     </>
   );
 }
