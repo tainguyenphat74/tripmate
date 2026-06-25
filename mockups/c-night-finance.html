@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TripMate — Night Finance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#F59E0B; --accent:#8B5CF6;
+    --bg:#0F172A; --card:#222735; --fg:#F8FAFC; --muted-fg:#94A3B8;
+    --border:#334155;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:#020617;display:flex;justify-content:center;padding:24px}
+  .phone{width:390px;min-height:780px;background:var(--bg);border-radius:36px;overflow:hidden;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.6);color:var(--fg)}
+  header{padding:54px 20px 22px}
+  .trip-row{display:flex;align-items:center;justify-content:space-between}
+  .trip-name{font-size:22px;font-weight:800;letter-spacing:-.02em}
+  .trip-sub{font-size:13px;color:var(--muted-fg);margin-top:2px;font-weight:500}
+  .icon-btn{width:40px;height:40px;border-radius:12px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+  .balance{margin-top:18px;background:linear-gradient(135deg,#1E293B,#222735);border:1px solid var(--border);border-radius:18px;padding:16px}
+  .balance .label{font-size:12px;color:var(--muted-fg);font-weight:500}
+  .balance .amount{font-size:28px;font-weight:800;margin-top:3px;color:var(--primary)}
+  main{padding:18px 16px 110px}
+  .section-title{font-size:12px;font-weight:700;color:var(--muted-fg);text-transform:uppercase;letter-spacing:.06em;margin:6px 4px 12px}
+  .exp{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .avatar{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0F172A;font-size:15px;flex-shrink:0}
+  .exp-info{flex:1;min-width:0}
+  .exp-desc{font-weight:700;font-size:15px}
+  .exp-meta{font-size:12.5px;color:var(--muted-fg);margin-top:2px;font-weight:500}
+  .exp-amt{font-weight:800;font-size:15px;font-variant-numeric:tabular-nums}
+  .tag{display:inline-block;font-size:11px;font-weight:600;background:rgba(139,92,246,.15);color:#C4B5FD;border:1px solid rgba(139,92,246,.35);padding:2px 8px;border-radius:999px;margin-top:6px}
+  .fab{position:absolute;right:20px;bottom:92px;width:58px;height:58px;border-radius:18px;background:var(--primary);color:#0F172A;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(245,158,11,.4)}
+  nav{position:absolute;left:0;right:0;bottom:0;background:#161B29;border-top:1px solid var(--border);display:flex;padding:10px 8px 22px}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--muted-fg)}
+  .tab.active{color:var(--primary)}
+  svg{display:block}
+</style>
+</head>
+<body>
+<div class="phone">
+  <header>
+    <div class="trip-row">
+      <div>
+        <div class="trip-name">Đà Lạt 06/2026</div>
+        <div class="trip-sub">5 thành viên · 8 khoản chi</div>
+      </div>
+      <div class="icon-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+      </div>
+    </div>
+    <div class="balance">
+      <div class="label">Bạn đang được nhận lại</div>
+      <div class="amount">+250.000đ</div>
+    </div>
+  </header>
+  <main>
+    <div class="section-title">Khoản chi gần đây</div>
+
+    <div class="exp">
+      <div class="avatar" style="background:#F59E0B">P</div>
+      <div class="exp-info">
+        <div class="exp-desc">Khách sạn 2 đêm</div>
+        <div class="exp-meta">Phát trả · chia đều 5 người</div>
+        <span class="tag">Bạn nợ 480.000đ</span>
+      </div>
+      <div class="exp-amt">2.400.000đ</div>
+    </div>
+
+    <div class="exp">
+      <div class="avatar" style="background:#8B5CF6;color:#fff">A</div>
+      <div class="exp-info">
+        <div class="exp-desc">Ăn tối lẩu</div>
+        <div class="exp-meta">An trả · chia theo từng người</div>
+        <span class="tag">Bạn nợ 150.000đ</span>
+      </div>
+      <div class="exp-amt">820.000đ</div>
+    </div>
+
+    <div class="exp">
+      <div class="avatar" style="background:#38BDF8">B</div>
+      <div class="exp-info">
+        <div class="exp-desc">Vé tham quan</div>
+        <div class="exp-meta">Bình trả · chia đều 5 người</div>
+        <span class="tag">Bạn nợ 80.000đ</span>
+      </div>
+      <div class="exp-amt">400.000đ</div>
+    </div>
+
+    <div class="exp">
+      <div class="avatar" style="background:#34D399">M</div>
+      <div class="exp-info">
+        <div class="exp-desc">Xăng xe</div>
+        <div class="exp-meta">Minh trả · chia đều 5 người</div>
+        <span class="tag">Bạn nợ 120.000đ</span>
+      </div>
+      <div class="exp-amt">600.000đ</div>
+    </div>
+  </main>
+
+  <div class="fab">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  </div>
+
+  <nav>
+    <div class="tab active">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="13" y2="12"/></svg>
+      Chi tiêu
+    </div>
+    <div class="tab">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/><circle cx="17" cy="14.5" r="1.5"/></svg>
+      Số dư
+    </div>
+    <div class="tab">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      Địa điểm
+    </div>
+  </nav>
+</div>
+</body>
+</html>
