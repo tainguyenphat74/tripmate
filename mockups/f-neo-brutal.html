@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TripMate — Neo Brutal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#FFFDF5; --ink:#0A0A0A; --red:#FF5252; --violet:#A78BFA; --yellow:#FFD23F; --blue:#5B8DEF; --green:#34D399; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Space Grotesk',sans-serif;background:#d6d3c4;display:flex;justify-content:center;padding:24px}
+  .phone{width:390px;min-height:780px;background:var(--bg);border-radius:30px;overflow:hidden;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.3);color:var(--ink);border:3px solid var(--ink)}
+  header{padding:48px 18px 12px}
+  .trip-row{display:flex;align-items:flex-start;justify-content:space-between}
+  .trip-name{font-size:26px;font-weight:700;line-height:1;text-transform:uppercase;letter-spacing:-.01em}
+  .trip-sub{font-size:12px;font-weight:600;margin-top:8px;background:var(--yellow);border:2px solid var(--ink);display:inline-block;padding:3px 8px}
+  .icon-btn{width:46px;height:46px;background:var(--violet);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:4px 4px 0 var(--ink);flex-shrink:0}
+  .balance{margin:14px 18px 6px;background:var(--green);border:3px solid var(--ink);padding:14px 16px;box-shadow:6px 6px 0 var(--ink)}
+  .balance .label{font-size:12px;font-weight:700;text-transform:uppercase}
+  .balance .amount{font-size:32px;font-weight:700;margin-top:2px}
+  main{padding:14px 18px 116px}
+  .section-title{font-size:13px;font-weight:700;text-transform:uppercase;margin:8px 2px 14px}
+  .exp{background:#fff;border:3px solid var(--ink);padding:13px;display:flex;align-items:center;gap:12px;margin-bottom:14px;box-shadow:5px 5px 0 var(--ink)}
+  .avatar{width:46px;height:46px;border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--ink);font-size:17px;flex-shrink:0}
+  .exp-info{flex:1;min-width:0}
+  .exp-desc{font-weight:700;font-size:16px}
+  .exp-meta{font-size:12px;font-weight:500;margin-top:3px}
+  .exp-amt{font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+  .tag{display:inline-block;font-size:11px;font-weight:700;background:var(--red);color:#fff;border:2px solid var(--ink);padding:1px 8px;border-radius:999px;margin-top:6px}
+  .fab{position:absolute;right:18px;bottom:96px;width:60px;height:60px;background:var(--red);border:3px solid var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:5px 5px 0 var(--ink)}
+  nav{position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:3px solid var(--ink);display:flex;padding:12px 8px 24px}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11px;font-weight:700;text-transform:uppercase;color:#9a958a}
+  .tab.active{color:var(--ink)}
+  svg{display:block}
+</style>
+</head>
+<body>
+<div class="phone">
+  <header>
+    <div class="trip-row">
+      <div><div class="trip-name">Đà Lạt<br>06/2026</div><div class="trip-sub">5 THÀNH VIÊN · 8 CHI</div></div>
+      <div class="icon-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg></div>
+    </div>
+  </header>
+  <div class="balance"><div class="label">Bạn được nhận lại</div><div class="amount">+250.000đ</div></div>
+  <main>
+    <div class="section-title">Khoản chi gần đây</div>
+    <div class="exp"><div class="avatar" style="background:var(--violet)">P</div><div class="exp-info"><div class="exp-desc">Khách sạn 2 đêm</div><div class="exp-meta">Phát trả · chia đều 5 người</div><span class="tag">Nợ 480.000đ</span></div><div class="exp-amt">2.400.000đ</div></div>
+    <div class="exp"><div class="avatar" style="background:var(--yellow)">A</div><div class="exp-info"><div class="exp-desc">Ăn tối lẩu</div><div class="exp-meta">An trả · chia theo từng người</div><span class="tag">Nợ 150.000đ</span></div><div class="exp-amt">820.000đ</div></div>
+    <div class="exp"><div class="avatar" style="background:var(--blue)">B</div><div class="exp-info"><div class="exp-desc">Vé tham quan</div><div class="exp-meta">Bình trả · chia đều 5 người</div><span class="tag">Nợ 80.000đ</span></div><div class="exp-amt">400.000đ</div></div>
+    <div class="exp"><div class="avatar" style="background:var(--green)">M</div><div class="exp-info"><div class="exp-desc">Xăng xe</div><div class="exp-meta">Minh trả · chia đều 5 người</div><span class="tag">Nợ 120.000đ</span></div><div class="exp-amt">600.000đ</div></div>
+  </main>
+  <div class="fab"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+  <nav>
+    <div class="tab active"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="13" y2="12"/></svg>Chi tiêu</div>
+    <div class="tab"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/><circle cx="17" cy="14.5" r="1.5"/></svg>Số dư</div>
+    <div class="tab"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Địa điểm</div>
+  </nav>
+</div>
+</body>
+</html>

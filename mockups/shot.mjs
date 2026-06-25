@@ -5,6 +5,9 @@ const pages = [
   ['a-sky-travel', 'a-sky-travel.html'],
   ['b-bold-rose', 'b-bold-rose.html'],
   ['c-night-finance', 'c-night-finance.html'],
+  ['d-soft-clay', 'd-soft-clay.html'],
+  ['e-glass-aurora', 'e-glass-aurora.html'],
+  ['f-neo-brutal', 'f-neo-brutal.html'],
 ];
 
 const browser = await chromium.launch({ executablePath: '/usr/bin/chromium-browser' });
