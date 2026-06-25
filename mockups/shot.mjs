@@ -8,6 +8,9 @@ const pages = [
   ['d-soft-clay', 'd-soft-clay.html'],
   ['e-glass-aurora', 'e-glass-aurora.html'],
   ['f-neo-brutal', 'f-neo-brutal.html'],
+  ['g-boarding-pass', 'g-boarding-pass.html'],
+  ['h-editorial-luxe', 'h-editorial-luxe.html'],
+  ['i-emerald-pro', 'i-emerald-pro.html'],
 ];
 
 const browser = await chromium.launch({ executablePath: '/usr/bin/chromium-browser' });

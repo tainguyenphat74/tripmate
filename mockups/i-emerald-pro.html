@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TripMate — Emerald Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#0A1512; --card:#11201B; --line:#1E332B; --fg:#ECFDF5; --muted:#7C9A8E; --em:#34D399; --em2:#10B981; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Sora',sans-serif;background:#04100c;display:flex;justify-content:center;padding:24px}
+  .phone{width:390px;min-height:780px;background:var(--bg);border-radius:36px;overflow:hidden;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.55);color:var(--fg)}
+  header{padding:50px 20px 6px;display:flex;justify-content:space-between;align-items:center}
+  .trip-name{font-size:21px;font-weight:700;letter-spacing:-.01em}
+  .trip-sub{font-size:12.5px;color:var(--muted);margin-top:2px;font-weight:500}
+  .icon-btn{width:42px;height:42px;border-radius:13px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .hero{margin:14px 18px 8px;background:radial-gradient(120% 120% at 100% 0%,rgba(52,211,153,.18),transparent 60%),var(--card);border:1px solid var(--line);border-radius:24px;padding:20px;display:flex;align-items:center;gap:18px}
+  .ring-wrap{position:relative;width:104px;height:104px;flex-shrink:0}
+  .ring-wrap .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .ring-wrap .ctr .n{font-size:20px;font-weight:800;color:var(--em)}
+  .ring-wrap .ctr .t{font-size:10px;color:var(--muted);margin-top:1px}
+  .hero-info .label{font-size:12px;color:var(--muted);font-weight:500}
+  .hero-info .amt{font-size:27px;font-weight:800;margin-top:2px}
+  .legend{margin-top:12px;display:flex;flex-direction:column;gap:7px}
+  .lg{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+  .lg b{color:var(--fg);font-weight:600}
+  .sw{width:9px;height:9px;border-radius:3px}
+  main{padding:8px 18px 110px}
+  .section-title{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:14px 4px 12px;display:flex;justify-content:space-between}
+  .link{color:var(--em);font-weight:600;text-transform:none;letter-spacing:0}
+  .exp{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 14px;display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .avatar{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;color:#06140f}
+  .exp-info{flex:1;min-width:0}
+  .exp-desc{font-weight:600;font-size:15px}
+  .exp-meta{font-size:12px;color:var(--muted);margin-top:2px;font-weight:500}
+  .exp-amt{font-weight:700;font-size:14.5px;font-variant-numeric:tabular-nums}
+  .owe{color:#FBBF24;font-weight:600}
+  .fab{position:absolute;right:20px;bottom:92px;width:58px;height:58px;border-radius:18px;background:linear-gradient(135deg,#34D399,#10B981);color:#06140f;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 26px rgba(16,185,129,.45)}
+  nav{position:absolute;left:0;right:0;bottom:0;background:#0C1814;border-top:1px solid var(--line);display:flex;padding:12px 8px 24px}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--muted)}
+  .tab.active{color:var(--em)}
+  svg{display:block}
+</style>
+</head>
+<body>
+<div class="phone">
+  <header>
+    <div><div class="trip-name">Đà Lạt 06/2026</div><div class="trip-sub">5 thành viên · 8 khoản chi</div></div>
+    <div class="icon-btn"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#ECFDF5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg></div>
+  </header>
+
+  <div class="hero">
+    <div class="ring-wrap">
+      <svg viewBox="0 0 36 36" width="104" height="104">
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#1E332B" stroke-width="3.2"/>
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#34D399" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="58 100" transform="rotate(-90 18 18)"/>
+        <circle cx="18" cy="18" r="15.9" fill="none" stroke="#FBBF24" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="22 100" stroke-dashoffset="-60" transform="rotate(-90 18 18)"/>
+      </svg>
+      <div class="ctr"><div class="n">+250K</div><div class="t">số dư</div></div>
+    </div>
+    <div class="hero-info">
+      <div class="label">Tổng quỹ chuyến đi</div>
+      <div class="amt">4.220.000đ</div>
+      <div class="legend">
+        <div class="lg"><span class="sw" style="background:#34D399"></span><b>3 người</b> được nhận lại</div>
+        <div class="lg"><span class="sw" style="background:#FBBF24"></span><b>2 người</b> còn phải trả</div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="section-title"><span>Khoản chi gần đây</span><span class="link">Xem tất cả</span></div>
+    <div class="exp"><div class="avatar" style="background:#34D399">P</div><div class="exp-info"><div class="exp-desc">Khách sạn 2 đêm</div><div class="exp-meta">Phát trả · chia đều · <span class="owe">bạn nợ 480.000đ</span></div></div><div class="exp-amt">2.400.000đ</div></div>
+    <div class="exp"><div class="avatar" style="background:#FBBF24">A</div><div class="exp-info"><div class="exp-desc">Ăn tối lẩu</div><div class="exp-meta">An trả · chia cụ thể · <span class="owe">bạn nợ 150.000đ</span></div></div><div class="exp-amt">820.000đ</div></div>
+    <div class="exp"><div class="avatar" style="background:#60A5FA">B</div><div class="exp-info"><div class="exp-desc">Vé tham quan</div><div class="exp-meta">Bình trả · chia đều · <span class="owe">bạn nợ 80.000đ</span></div></div><div class="exp-amt">400.000đ</div></div>
+    <div class="exp"><div class="avatar" style="background:#A78BFA">M</div><div class="exp-info"><div class="exp-desc">Xăng xe</div><div class="exp-meta">Minh trả · chia đều · <span class="owe">bạn nợ 120.000đ</span></div></div><div class="exp-amt">600.000đ</div></div>
+  </main>
+
+  <div class="fab"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#06140f" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+  <nav>
+    <div class="tab active"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="13" y2="12"/></svg>Chi tiêu</div>
+    <div class="tab"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/><circle cx="17" cy="14.5" r="1.5"/></svg>Số dư</div>
+    <div class="tab"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Địa điểm</div>
+  </nav>
+</div>
+</body>
+</html>
