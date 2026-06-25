@@ -11,6 +11,11 @@ const pages = [
   ['g-boarding-pass', 'g-boarding-pass.html'],
   ['h-editorial-luxe', 'h-editorial-luxe.html'],
   ['i-emerald-pro', 'i-emerald-pro.html'],
+  ['j-editorial-travel', 'j-editorial-travel.html'],
+  ['k-passport', 'k-passport.html'],
+  ['l-travel-journal', 'l-travel-journal.html'],
+  ['m-warm-minimal', 'm-warm-minimal.html'],
+  ['n-sunset-premium', 'n-sunset-premium.html'],
 ];
 
 const browser = await chromium.launch({ executablePath: '/usr/bin/chromium-browser' });
